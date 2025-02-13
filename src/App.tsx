@@ -1,7 +1,7 @@
-import './App.css'
-import Footer from './components/Footer'
-import Header from './components/Header'
-import TodoApp from './components/TodoApp'
+import Footer from './components/Footer/Footer'
+import Header from './components/Header/Header'
+import TodoApp from './components/TodoApp/TodoApp'
+import "./App.scss"
 
 const App = () => {
   return (
