@@ -1,4 +1,6 @@
 .task-list {
     width: 100%;
     background-color: white;
+    max-height: 400px;
+    overflow: auto;
 }

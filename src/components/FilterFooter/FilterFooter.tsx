@@ -1,19 +1,37 @@
+import { Task } from "../model/task.model"
 import "./FilterFooter.scss"
+import { FilterType } from "../model/filter-type.enum"
 
-const FilterFooter = () => {
+interface FilterFooterProps {
+  tasks: Task[],
+  filterType: FilterType,
+  setFilter: (filterType: FilterType) => void
+}
+
+const FilterFooter = ({ tasks, filterType, setFilter }: FilterFooterProps) => {
+
   return (
     <div className="filter-footer">
-      <div className="filter-footer-count-items">2 items</div>
+      <div className="filter-footer-count-items">{tasks.length} items</div>
       <div className="filter-footer-filters">
         <ul>
           <li>
-            <button>All</button>
+            <button className={filterType === FilterType.ALL ? "active" : ""}
+              onClick={() => setFilter(FilterType.ALL)}>
+              All
+            </button>
           </li>
           <li>
-            <button>Active</button>
+            <button className={filterType === FilterType.ACTIVE ? "active" : ""}
+              onClick={() => setFilter(FilterType.ACTIVE)}>
+              Active
+            </button>
           </li>
           <li>
-            <button className="active">Completed</button>
+            <button className={filterType === FilterType.COMPLETED ? "active" : ""}
+              onClick={() => setFilter(FilterType.COMPLETED)}>
+              Completed
+            </button>
           </li>
         </ul>
       </div>
